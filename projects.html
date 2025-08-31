@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check out my projects!</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mea+Culpa&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar">
+        <a href="index.html" style="text-align: left; align-items:baseline">
+            <img src="/views/logo.PNG" alt="logo" width="275"></a>
+    <div class="nav-links">
+        <a href="index.html" style="color: #870000; text-decoration: none;">HOME</a>
+        <a href="projects.html" style="color: #870000; text-decoration: none;">PROJECTS</a>
+        <a href="Noorjahan_Kazi_CV.pdf" download><i class="fa-solid fa-file-lines" style="font-size:22px;"></i></a>
+        <a href="https://github.com/noorkaazi"> <i class="fa-brands fa-github" style="font-size:22px;"></i></a>
+        <a href="https://www.linkedin.com/in/noorjahan-kazi/"><i class="fa-brands fa-linkedin" style="font-size:22px;"></i></a>
+        <a href="mailto:no_kazi@live.concordia.ca"><i class="fa-solid fa-envelope" style="font-size:22px;"></i></a>
+    </div>
+  </div>  
+  
+
+  <div class="projectsWelcome">
+  <div class="text-container">
+    <p style="font-family: Mea Culpa, cursive; text-align: center; font-size: 100px;">
+      <img src="/views/twinkle1.gif" width="100px">
+      My Projects
+      <img src="/views/twinkle1.gif" width="100px">
+   </p>
+   </div>
+</div>
+
+<div class="project card-reveal">
+   <div class="projectPhoto slideshow-container" data-slides='["views/tt1.png", "views/tt2.png", "views/tt3.png", "views/tt4.png"]'>
+    <figure>
+      <img class="slideimage" alt="Slideshow image">
+      <figcaption class="slidefigure"></figcaption>
+    </figure>
+    <div class="navigation" style="text-align:center; margin-top:0px; padding-top: 0%;">
+  <button class="nav-btn prev" aria-label="Previous slide">←</button>
+  <button class="nav-btn next" aria-label="Next slide">→</button>
+    </div>
+
+  </div>
+
+  <div class="projectDescription">
+    <h3>TinTok</h3>
+    <h3 class="shadow">TinTok</h3>
+    <p>
+     TinTok is a cross-platform desktop baking timer
+     application using Electron.js, HTML, CSS, and Node.js, 
+     designed with custom presets for different baking types. 
+     I created all of the visual components—including pixel-art 
+     backgrounds, buttons, and animated assets—while implementing 
+     a pixel-style UI with animated backgrounds and custom 
+     minimize/close controls. The app features image-based buttons 
+     and real-time countdown logic to deliver an intuitive, 
+     engaging user experience tailored for home bakers based on baking tin used.
+    </p>
+  </div>
+
+</div>
+
+
+<div class="project card-reveal">
+  <div class="projectDescription">
+    <h3>Friends For Life</h3>
+    <h3 class="shadow">Friends For Life</h3>
+    <p>
+      Freinds For Life is a full-stack pet adoption web platform using Node.js, 
+      Express, EJS, HTML/CSS, and JavaScript, with persistent 
+      data handled through file I/O. The application allows users 
+      to register, log in, list pets for adoption, and search for 
+      available pets. It implementes dynamic form validation, 
+      session-based authentication, and a responsive, custom-styled 
+      frontend to ensure a smooth user experience. The platform is 
+      available via GitHub, complete with clear 
+      documentation and setup instructions for users.
+    </p>
+  </div>
+  <div id="slideshow-container" class="projectPhoto slideshow-container" data-slides='["views/ffl1.png", "views/ffl2.png", "views/ffl3.png"]'>
+    <figure>
+      <img class="slideimage" alt="Slideshow image">
+      <figcaption class="slidefigure"></figcaption>
+    </figure>
+
+      <div class="navigation" style="text-align:center; margin-top:0px; padding-top: 0%;">
+  <button class="nav-btn prev" aria-label="Previous slide">←</button>
+  <button class="nav-btn next" aria-label="Next slide">→</button>
+      </div>
+
+  </div>
+</div>
+
+<div class="project card-reveal">
+    <div class="projectPhoto">
+      <img src="views/cc1.png" alt="calc For Cuties">
+   </div>
+   <div class="projectDescription">
+      <h3> Cloud Calculator</h3>
+      <h3 class="shadow">Cloud Calculator</h3>
+      <p>I created a basic calculator web app using HTML, 
+        CSS, and JavaScript that supports standard arithmetic 
+        operations such as addition, subtraction, multiplication, 
+        and division. To make the project more visually engaging, 
+        I added a playful pixalated cloud background that is animated 
+        using pure CSS animations.</p>
+   </div>
+  </div> 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Slideshows
+  document.querySelectorAll(".slideshow-container").forEach(container => {
+    const slides = JSON.parse(container.dataset.slides || "[]");
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    const img = container.querySelector(".slideimage");
+    const fig = container.querySelector(".slidefigure");
+    const prevBtn = container.querySelector(".prev");
+    const nextBtn = container.querySelector(".next");
+
+    function showSlide(i) {
+      currentSlide = (i + slides.length) % slides.length;
+      if (img) img.src = slides[currentSlide];
+      if (fig) fig.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+    }
+
+    prevBtn?.addEventListener("click", () => showSlide(currentSlide - 1));
+    nextBtn?.addEventListener("click", () => showSlide(currentSlide + 1));
+    showSlide(0);
+  });
+
+  const cards = document.querySelectorAll('.card-reveal');
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+  cards.forEach(c => io.observe(c));
+});
+</script>
+
+<div class="nav-links" style="text-align: center;">
+        <a href="Noorjahan_Kazi_CV.pdf" download><i class="fa-solid fa-file-lines" style="font-size:22px;"></i></a>
+        <a href="https://github.com/noorkaazi"> <i class="fa-brands fa-github" style="font-size:22px;"></i></a>
+        <a href="https://www.linkedin.com/in/noorjahan-kazi/"><i class="fa-brands fa-linkedin" style="font-size:22px;"></i></a>
+      <a href="mailto:no_kazi@live.concordia.ca"><i class="fa-solid fa-envelope" style="font-size:22px;"></i></a>
+    <br><br>
+   </div>
+
+</body>
+
+</html>
